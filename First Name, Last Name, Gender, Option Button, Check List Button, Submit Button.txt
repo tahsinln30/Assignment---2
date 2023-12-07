@@ -1,0 +1,53 @@
+package Test;
+
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import static org.junit.Assert.assertEquals;
+import org.junit.Test;
+
+
+public class Demo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		System.setProperty("webDriver.gecko.driver","C:\\Users\\Hp\\eclipse-workspace\\Assignment\\Driver\\geckodriver.exe");
+        WebDriver driver = new FirefoxDriver();
+        driver.get("https://trytestingthis.netlify.app/");
+        driver.manage().window().maximize();
+       
+    //First Name and Last Name - Test
+     		driver.findElement(By.id("fname")).sendKeys("Tahsin");
+     		driver.findElement(By.id("lname")).sendKeys("Ahmed");
+
+    //Gender - Test
+    		WebElement RadioButton = driver.findElement(By.id("male"));
+    		RadioButton.click();
+    		
+    //Drop Down - Test
+    		WebElement DropDown =  driver.findElement(By.id("option"));
+    		Select dropDown = new Select(DropDown);
+    		dropDown.selectByValue("option 3");
+    		
+    //Check List - Test
+    		WebElement CheckList = driver.findElement(By.cssSelector("body > div:nth-child(3) > div:nth-child(2) > form:nth-child(3) > fieldset:nth-child(1) > input:nth-child(40)"));
+    		CheckList.click();
+    		
+    //Button Click - Test
+    		driver.findElement(By.xpath("//button[normalize-space()='Submit']")).click();
+       
+	  
+	}
+		
+}
+	
+
+
